@@ -8,6 +8,7 @@ const asana = require("asana");
 
 async function asanaOperations(asanaPAT, targets) {
   try {
+    console.log("function called");
     const client = asana.Client.create({
       defaultHeaders: { "asana-enable": "new-sections,string_ids" },
       logAsanaChangeWarnings: false
@@ -70,6 +71,7 @@ async function asanaOperations(asanaPAT, targets) {
 }
 
 try {
+  console.log("try method");
   const ASANA_TOKEN = core.getInput("asana-pat"),
     TARGETS = core.getInput("targets");
   // PULL_REQUEST = github.context.payload.pull_request,
