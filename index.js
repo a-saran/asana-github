@@ -8,12 +8,11 @@ const asana = require("asana");
 
 async function asanaOperations(asanaPAT, targets) {
   try {
-    console.log("function called");
     const client = asana.Client.create({
       defaultHeaders: { "asana-enable": "new-sections,string_ids" },
       logAsanaChangeWarnings: false
     }).useAccessToken(asanaPAT);
-
+    console.log("client", JSON.stringify(client));
     // Get All project
     const projects = client.projects
       .getProjects({ param: "value", param: "value", opt_pretty: true })
@@ -27,14 +26,14 @@ async function asanaOperations(asanaPAT, targets) {
       const targetProject = projects.find(
         project => project.name.toLowerCase() === target.project.toLowerCase()
       );
-      console.log({ targetProject });
+      console.log("targetProject", JSON.stringify(targetProject));
       // if(targetProject) {
 
       // }
     });
 
     client.tasks.createTask({ completed: false, pretty: true }).then(result => {
-      console.log("create Task result", result);
+      console.log("create Task result", JSON.stringify(result));
     });
 
     // // targets.forEach(async target => {
@@ -71,7 +70,6 @@ async function asanaOperations(asanaPAT, targets) {
 }
 
 try {
-  console.log("try method");
   const ASANA_TOKEN = core.getInput("asana-pat"),
     TARGETS = core.getInput("targets");
   // PULL_REQUEST = github.context.payload.pull_request,
