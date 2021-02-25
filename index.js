@@ -12,7 +12,8 @@ async function asanaOperations(asanaPAT, targets) {
       defaultHeaders: { "asana-enable": "new-sections,string_ids" },
       logAsanaChangeWarnings: false
     }).useAccessToken(asanaPAT);
-    console.log("client", JSON.stringify(client));
+    console.log("asanaPAT", JSON.stringify(asanaPAT));
+    console.log("targets", JSON.stringify(targets));
     // Get All project
     client.projects
       .getProjects({
