@@ -14,12 +14,17 @@ async function asanaOperations(asanaPAT, targets) {
     }).useAccessToken(asanaPAT);
     console.log("client", JSON.stringify(client));
     // Get All project
-    const projects = client.projects
-      .getProjects({ param: "value", param: "value", opt_pretty: true })
-      .then(result => {
-        console.log(result, "projects");
-        return result;
-      });
+    const projects = await client.projects.getProjects({
+      param: "value",
+      param: "value",
+      opt_pretty: true
+    });
+    console.log("projects :", JSON.stringify(projects));
+
+    // .then(result => {
+    //   console.log(result, "projects");
+    //   return result;
+    // });
 
     targets.forEach(async target => {
       // Get project
@@ -65,7 +70,7 @@ async function asanaOperations(asanaPAT, targets) {
     //   core.info("Added the pull request link to the Asana task.");
     // }
   } catch (ex) {
-    console.error(ex.value);
+    console.error("error :", ex.value);
   }
 }
 
