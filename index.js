@@ -16,8 +16,6 @@ async function asanaOperations(asanaPAT, targets) {
     // Get All project
     const projects = client.projects
       .getProjects({
-        param: "value",
-        param: "value",
         opt_pretty: true
       })
       .then(result => {
