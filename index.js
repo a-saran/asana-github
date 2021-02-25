@@ -14,9 +14,11 @@ async function asanaOperations(asanaPAT, targets) {
     }).useAccessToken(asanaPAT);
     console.log("client", JSON.stringify(client));
     // Get All project
-    const projects = client.projects
+    client.projects
       .getProjects({
-        opt_pretty: true
+        data: {
+          opt_pretty: true
+        }
       })
       .then(result => {
         console.log(result, "projects");
