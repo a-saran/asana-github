@@ -28,20 +28,20 @@ async function asanaOperations(asanaPAT, targets) {
 
     console.log("projects :", JSON.stringify(projects));
 
-    targets.forEach(async target => {
-      // Get project
-      const targetProject = projects.find(
-        project => project.name.toLowerCase() === target.project.toLowerCase()
-      );
-      console.log("targetProject", JSON.stringify(targetProject));
-      // if(targetProject) {
+    // targets.forEach(async target => {
+    //   // Get project
+    //   const targetProject = projects.find(
+    //     project => project.name.toLowerCase() === target.project.toLowerCase()
+    //   );
+    //   console.log("targetProject", JSON.stringify(targetProject));
+    //   // if(targetProject) {
 
-      // }
-    });
+    //   // }
+    // });
 
-    client.tasks.createTask({ completed: false, pretty: true }).then(result => {
-      console.log("create Task result", JSON.stringify(result));
-    });
+    // client.tasks.createTask({ completed: false, pretty: true }).then(result => {
+    //   console.log("create Task result", JSON.stringify(result));
+    // });
 
     // // targets.forEach(async target => {
     // let targetProject = task.projects.find(
