@@ -14,17 +14,19 @@ async function asanaOperations(asanaPAT, targets) {
     }).useAccessToken(asanaPAT);
     console.log("client", JSON.stringify(client));
     // Get All project
-    const projects = await client.projects.getProjects({
-      param: "value",
-      param: "value",
-      opt_pretty: true
-    });
-    console.log("projects :", JSON.stringify(projects));
+    const projects = client.projects
+      .getProjects({
+        param: "value",
+        param: "value",
+        opt_pretty: true
+      })
+      .then(result => {
+        console.log(result, "projects");
+        return result;
+      })
+      .catch(err => console.log("catch error :", JSON.stringify(err)));
 
-    // .then(result => {
-    //   console.log(result, "projects");
-    //   return result;
-    // });
+    console.log("projects :", JSON.stringify(projects));
 
     targets.forEach(async target => {
       // Get project
