@@ -70,7 +70,7 @@ async function asanaOperations(asanaPAT, targets) {
     //   core.info("Added the pull request link to the Asana task.");
     // }
   } catch (ex) {
-    console.error("error :", ex.value);
+    console.error("error :", JSON.stringify(ex));
   }
 }
 
