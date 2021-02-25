@@ -8,12 +8,10 @@ const asana = require("asana");
 
 async function asanaOperations(asanaPAT, targets) {
   // try {
-  const client = asana.Client.create({
-    defaultHeaders: { "asana-enable": "new-sections,string_ids" },
-    logAsanaChangeWarnings: false
-  }).useAccessToken(asanaPAT);
+  const client = asana.Client.create().useAccessToken(asanaPAT);
   console.log("asanaPAT", JSON.stringify(asanaPAT));
   console.log("targets", JSON.stringify(targets));
+  console.log("client", JSON.stringify(client));
   // Get All project
   client.projects
     .getProjects({
